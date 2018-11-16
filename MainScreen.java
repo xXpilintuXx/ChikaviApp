@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 
 /*___________________________________________________________________
@@ -33,18 +36,49 @@ ____________________________________________________________________|
 ____________________________________________________________________|
 */
 public class MainScreen extends JFrame{
+	JMenuBar menubar;
+	JMenuItem dTheme, lTheme;
+	JMenu themeMenu, menuEdit;
+	JTextField nameTxt;
+	JLabel labelTxtDir;
+	JButton butTheme;
+	JPanel backgroundPanel;
+	Color blackTheme;
+	Color whiteTheme;
 
+
+
+	void changeTheme(boolean t){
+		if (t){
+
+		} else {
+
+		}
+	}
 
 	//init Component for the Main Frame
 	private void initComponent(){
 		//declaration of components
-		JTextField nameTxt = new JTextField();
-		JLabel labelTxtDir = new JLabel();
-		JButton butTheme = new JButton("Dark Theme");
-		JPanel backgroundPanel = new JPanel();
-		Color blackTheme = new Color(40,41,35);
-		Color whiteTheme = new Color(235,237,239);
+		menubar = new JMenuBar();
+		menuEdit = new JMenu("Preferencias");
+		dTheme = new JMenuItem("Dark Theme");
+		lTheme = new JMenuItem("Light Theme");
+		themeMenu = new JMenu("Tema");
+		nameTxt = new JTextField();
+		labelTxtDir = new JLabel();
+		butTheme = new JButton("Dark Theme");
+		backgroundPanel = new JPanel();
+		blackTheme = new Color(40,41,35);
+		whiteTheme = new Color(235,237,239);
 		
+		//menu Init
+		menubar.add(menuEdit);
+		themeMenu.add(dTheme);
+		themeMenu.add(lTheme);
+		menuEdit.add(themeMenu);
+
+
+
 		//theme changes
 		backgroundPanel.setBackground(blackTheme);
 		labelTxtDir.setForeground(Color.white);
@@ -62,6 +96,7 @@ public class MainScreen extends JFrame{
 
 
 		// Here the main options for the main screen
+		setJMenuBar(menubar);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
